@@ -38,5 +38,14 @@ it ('should be possible to control phone order via the drop down search box', fu
 	query.sendKeys('motorola');
 	expect(phoneList.count()).toBe(2);
 	});
+	it('should render phone specific links', functuon()){
+		var query= element(by.model('query'));
+		query.sendKeys('nexus');
+		element.all
+		(by.css('.phones li a')).first().click();
+		browser.getLocationAbsUrl().then(function(url) {
+			expect(url.split('#')[1]).toBe('/phones/nexus-s');
+		});
+	});
 });
 });
